@@ -113,7 +113,7 @@ If a property is listenable, you can use the old notation to get the value of th
 `myModel.get('toto')`
 `myModel.toto`
 
-- ** setter**
+- **setter**
 
 To modify a specific property, you can use the old backbone set method, or you can acces directly to that property.
 `myModel.set({'toto': 42})`

@@ -1,5 +1,5 @@
 /**
-* Backbone Harmony Adapter
+* Backbone Harmony
 * Version 0.1.0
 *
 * https://github.com/FerdinandPiette/backbone.harmony

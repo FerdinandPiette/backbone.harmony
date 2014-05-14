@@ -1,8 +1,8 @@
 # Backbone Harmony v0.1.0
 
-Using ECMAscript6 Proxy to replace Backbone.Model getter and setter !!
+Using ECMAscript6 Proxy to replace Backbone.Model getters and setters !!
 
-## Usage
+## Standard Usage
 
 Include backbone.harmony after having included Backbone.js :
 
@@ -23,22 +23,22 @@ myModel.toto = 42;
 myModel.toto = 13;
 ```
 
-Here is what you get in the terminal :
+Here is what you get in your terminal :
 
 ```bash
 plop : 42
 plop : 13
 ```
 
-# With RequireJS
+## With RequireJS
 
 Include RequireJS :
 
 ```html
-<script type="text/javascript" src="lib/require.js"></script>
+<script data-main="main" src="vendors/require.js"></script>
 ```
 
-RequireJS config: 
+RequireJS configuration : 
 
 ```javascript
 require.config({
@@ -67,7 +67,7 @@ require.config({
 });
 ```
 
-You can now define module and require its as usualy :
+You can now define module and require its as usually :
 
 ```javascript
 define('MyModel', ['backbone'], function(Backbone) {
@@ -76,9 +76,6 @@ define('MyModel', ['backbone'], function(Backbone) {
 			return {
 				'toto': 42;
 			};
-		},
-        initialize: function() {
-
 		}
     });
 
@@ -92,8 +89,8 @@ require(['MyModel'], function(MyModel) {
 	myModel.on('change:toto', function(model) {
 		console.log('plop : '+model.toto);
 	}); 
-	myModel.toto = 42;
-	myModel.toto = 13;
+	myModel.toto = 42;	// No change
+	myModel.toto = 13;	// First change
 });
 ```
 
@@ -103,6 +100,8 @@ require(['MyModel'], function(MyModel) {
 
 Use this method to make one or several properties listenables. All the properties in the `attributes` object of your model are listenables.
 
+For example, `myModel.listenable('titi', 'toto');` creates two new properties with undefined values in myModel.attributes
+
 - **`isListenable()`**
 
 Return `true` if the specified property is listenable (even if its value is null or undefined).
@@ -110,11 +109,11 @@ Return `true` if the specified property is listenable (even if its value is null
 - **getter**
 
 If a property is listenable, you can use the old notation to get the value of the property, or you can access to this property directly.
-`myModel.get('toto')`
-`myModel.toto`
+
+If the property `toto` is listenable, `myModel.toto` is equivalent to `myModel.get('toto')`
 
 - **setter**
 
-To modify a specific property, you can use the old backbone set method, or you can acces directly to that property.
-`myModel.set({'toto': 42})`
-`myModel.toto = 42`
+To modify a specific property, you can use the old backbone set method, or you can access directly to that property.
+
+If the property `toto`is listenable, `myModel.toto = 42` is equivalent to `myModel.set({'toto': 42})`

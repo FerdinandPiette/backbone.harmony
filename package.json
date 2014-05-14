@@ -1,0 +1,25 @@
+{
+  "author": "Ferdinand Piette <ferdinand.piette@gmail.com>",
+  "name": "backbone.harmony",
+  "description": "Using ECMAscript6 Proxy to replace Backbone.Model getter and setter.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FerdinandPiette/backbone.harmony",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FerdinandPiette/backbone.harmony.git"
+  },
+  "main": "./backbone.harmony.js",
+  "dependencies": {
+    "backbone": "~1.x.x"
+  },
+  "keywords": [
+    "backbone",
+	"model",
+    "proxy",
+    "ecmascript6",
+    "harmony"
+    "getter"
+    "setter"
+  ]
+}
+

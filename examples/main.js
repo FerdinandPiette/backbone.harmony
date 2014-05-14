@@ -24,14 +24,20 @@ require.config({
 });
 
 require(['MyModel'], function(MyModel) {
-	myModel = new MyModel(); 
+	var myModel = new MyModel(); 
 	myModel.on('change:toto', function(model) {
+		// Equivalent to :
+		// $('#logger').append('<li>New value : '+model.get('toto')+'</li>');
 		$('#logger').append('<li>New value : '+model.toto+'</li>');
 	}); 
 
 	$('#update').click(function() {
+		// Equivalent to : 
+		// myModel.set({toto: $('#data').val()});
 		myModel.toto = $('#data').val();
 	}); 
 
+	// Equivalent to :
+	// $('#logger').append('<li>Initial value : '+model.get('toto')+'</li>');
 	$('#logger').append('<li>Initial value : '+myModel.toto+'</li>');
 });

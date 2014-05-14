@@ -1,7 +1,7 @@
 /**
 * Backbone Harmony
-* Version 0.1.0
+* Version 0.1.1
 *
 * https://github.com/FerdinandPiette/backbone.harmony
 */
-!function(e,t){"undefined"!=typeof exports?t(e,exports,require("backbone")):"function"==typeof define&&define.amd?define(["backbone"],function(n){return t(e,n||e.Backbone)}):t(e,Backbone)}(this,function(e,t){"use strict";t.Model.prototype.listenable=function(){var e=Array.prototype.slice.call(arguments);return e.forEach(function(e){e in this.attributes||(this.attributes[e]=void 0)}.bind(this)),this},t.Model.prototype.isListenable=function(e){return e in this.attributes?!0:!1};var n={get:function(e,t){return e.isListenable(t)?e.get(t):e[t]},set:function(e,t,n,r){if(e.isListenable(t)){var i={};i[t]=n,r.set(i)}else e[t]=n;return!0}},r={construct:function(e,t){var r=Object.create(e.prototype);return e.apply(r,t),new Proxy(r,n)}};t.Model=new Proxy(t.Model,r);var i=t.Model.extend;return t.Model.extend=function(){var e=i.apply(this,arguments);return new Proxy(e,r)},t});
+(function(c,a){"undefined"!==typeof exports?a(c,exports,require("backbone")):"function"===typeof define&&define.d?define(["backbone"],function(d){return a(c,d||c.c)}):a(c,Backbone)})(this,function(c,a){a.a.prototype.b=function(b){return b in this.attributes?!0:!1};var d={get:function(b,a){return b.b(a)?b.get(a):b[a]},set:function(b,a,c,d){b.b(a)?(b={},b[a]=c,d.set(b)):b[a]=c;return!0}},e={e:function(a,c){var e=Object.create(a.prototype);a.apply(e,c);return new Proxy(e,d)}};a.a=new Proxy(a.a,e);var f=a.a.extend;a.a.extend=function(){var a=f.apply(this,arguments);return new Proxy(a,e)};return a});

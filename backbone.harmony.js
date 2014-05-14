@@ -1,6 +1,6 @@
 /**
 * Backbone Harmony
-* Version 0.1.0
+* Version 0.1.1
 *
 * https://github.com/FerdinandPiette/backbone.harmony
 */
@@ -40,7 +40,7 @@
         return false;
     };
     
-	// Metaprogramming interface for instances's getters and setters
+	// Metaprogramming interface for Backbone.Model's instances getters and setters
     var ModelInstanceMetaProgrammingInterface = {
 		// Backbone.Model instance getter
         get: function(object, property) {
@@ -78,7 +78,8 @@
     Backbone.Model = new Proxy(Backbone.Model, ModelMetaProgrammingInterface);
 
 	// Redefinition of Backbone.Model.extend
-	// Instances of a class that inherit of Backbone.Model is a Proxy
+	// An instance of a class that inherit from Backbone.Model is a Proxy
+	// So we can use the redefined getter and setter
 	var oldExtend = Backbone.Model.extend;
 	Backbone.Model.extend = function() {
 		var child = oldExtend.apply(this, arguments);	

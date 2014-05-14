@@ -1,4 +1,4 @@
-# Backbone Harmony v0.1.0
+# Backbone Harmony v0.1.1
 
 Using ECMAscript6 Proxy to replace Backbone.Model getters and setters !!
 
@@ -104,7 +104,9 @@ For example, `myModel.listenable('titi', 'toto');` creates two new properties wi
 
 - **`isListenable()`**
 
-Return `true` if the specified property is listenable (even if its value is null or undefined).
+Return `true` if the specified property is listenable.
+
+This method is different from Backbone's `has` method. Event if the property value is `undefined` or `null` but exists in `myModel.attributes` object, `isListenable` will return `true`.
 
 - **getter**
 

@@ -46,7 +46,7 @@ require.config({
         'jquery': 'vendors/jquery-min',
         'underscore': 'vendors/underscore-min',
         'backboneBase': 'vendors/backbone-min',
-        'backbone': '../src/backbone.harmony-min'
+        'backbone': '../backbone.harmony'
     },
     shim: {
         'jquery': {
@@ -67,7 +67,7 @@ require.config({
 });
 ```
 
-You can now define module and require its as usually :
+You can now define modules and require its as usually :
 
 ```javascript
 define('MyModel', ['backbone'], function(Backbone) {
@@ -89,7 +89,7 @@ require(['MyModel'], function(MyModel) {
 	myModel.on('change:toto', function(model) {
 		console.log('plop : '+model.toto);
 	}); 
-	myModel.toto = 42;	// No change
+	myModel.toto = 42;	// No change (initial value was already 42)
 	myModel.toto = 13;	// First change
 });
 ```

@@ -1,6 +1,6 @@
 /**
 * Backbone Harmony
-* Version 0.1.1
+* Version 0.1.2
 *
 * https://github.com/FerdinandPiette/backbone.harmony
 */
@@ -72,11 +72,6 @@
 	    }
 	};
 
-	// Backbone.Model is now a Proxy that redefine 'new' operator
-	// During 'new' operation, the Backbone.Model instance is wrapped 
-	// in a Proxy that redefine getters and setters
-    Backbone.Model = new Proxy(Backbone.Model, ModelMetaProgrammingInterface);
-
 	// Redefinition of Backbone.Model.extend
 	// An instance of a class that inherit from Backbone.Model is a Proxy
 	// So we can use the redefined getter and setter
@@ -85,6 +80,11 @@
 		var child = oldExtend.apply(this, arguments);	
 		return new Proxy(child, ModelMetaProgrammingInterface);
 	};
+
+	// Backbone.Model is now a Proxy that redefine 'new' operator
+	// During 'new' operation, the Backbone.Model instance is wrapped 
+	// in a Proxy that redefine getters and setters
+    Backbone.Model = Backbone.Model.extend();
 
     return Backbone;    
 }));

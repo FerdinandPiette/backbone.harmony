@@ -1,4 +1,4 @@
-# Backbone Harmony v0.1.1
+# Backbone Harmony v0.1.2
 
 Using ECMAscript6 Proxy to replace Backbone.Model getters and setters !!
 
